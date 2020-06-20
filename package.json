@@ -1,0 +1,30 @@
+{
+  "name": "brainium-api",
+  "version": "1.0.0",
+  "description": "RESTful API for client side of Brainium app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.mjs",
+    "start:dev": "nodemon server.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liviuschera/brainium.git"
+  },
+  "author": "Liviu Schera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liviuschera/brainium/issues"
+  },
+  "homepage": "https://github.com/liviuschera/brainium#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "knex": "^0.21.1",
+    "pg": "^8.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
