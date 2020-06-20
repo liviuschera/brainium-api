@@ -6,13 +6,13 @@ export default async function handleSignIn(req, res) {
 
    try {
       const userExists = await getUserLogin(email);
-      console.log(userExists);
+      // console.log(userExists);
 
       if (!userExists) {
          throw new Error(`Unable find: ${email}`);
       }
       const passwordIsValid = bcrypt.compareSync(password, userExists.hash);
-      console.log('passwordIsValid:  ', passwordIsValid);
+      // console.log('passwordIsValid:  ', passwordIsValid);
 
       if (passwordIsValid) {
          res.json(userExists);

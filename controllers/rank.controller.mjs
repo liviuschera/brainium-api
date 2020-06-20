@@ -2,7 +2,7 @@ import { getUserById, updateUserEntries } from '../database/query.database.mjs';
 
 export default async function handleRank(req, res) {
    const { id } = req.body;
-   console.log('UPDATE ENTRY: ', id);
+   // console.log('UPDATE ENTRY: ', id);
    const userExists = await getUserById(id);
 
    if (userExists) {

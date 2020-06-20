@@ -14,7 +14,7 @@ export default async function handleSignUp(req, res) {
          password: hash,
          joined: new Date(),
       });
-      console.log('user exists: ', userExists);
+      // console.log('user exists: ', userExists);
       if (userExists) {
          res.json(userExists);
       } else {
