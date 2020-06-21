@@ -1,4 +1,5 @@
-import bcrypt from 'bcryptjs';
+// import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt-nodejs';
 import { getUserLogin } from '../database/query.database.mjs';
 
 export default async function handleSignIn(req, res) {

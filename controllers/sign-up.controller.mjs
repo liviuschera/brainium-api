@@ -1,11 +1,13 @@
-import bcrypt from 'bcryptjs';
+// import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt-nodejs';
 import { insertUser } from '../database/query.database.mjs';
 
 export default async function handleSignUp(req, res) {
    const { firstName, lastName, email, password } = req.body;
    try {
-      var salt = bcrypt.genSaltSync(10);
-      var hash = bcrypt.hashSync(password, salt);
+      // var salt = bcrypt.genSaltSync(10);
+      // var hash = bcrypt.hashSync(password, salt);
+      const hash = bcrypt.hashSync(password);
 
       const userExists = await insertUser({
          first_name: firstName,
