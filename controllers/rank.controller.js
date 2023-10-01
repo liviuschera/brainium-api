@@ -1,4 +1,4 @@
-import { getUserById, updateUserEntries } from '../database/query.database.mjs';
+import { getUserById, updateUserEntries } from '../database/query.database.js';
 
 export default async function handleRank(req, res) {
    const { id } = req.body;

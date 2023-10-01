@@ -1,6 +1,6 @@
 // import bcrypt from 'bcryptjs';
 import bcrypt from 'bcrypt-nodejs';
-import { insertUser } from '../database/query.database.mjs';
+import { insertUser } from '../database/query.database.js';
 
 export default async function handleSignUp(req, res) {
    const { firstName, lastName, email, password } = req.body;

@@ -1,4 +1,4 @@
-import db from './connect.database.mjs';
+import db from './connect.database.js';
 
 export async function getAllUsers() {
   try {

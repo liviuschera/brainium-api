@@ -1,10 +1,10 @@
 import express from 'express';
 import cors from 'cors';
-import handleSignIn from './controllers/sign-in.controller.mjs';
-import handleSignUp from './controllers/sign-up.controller.mjs';
-import handleRank from './controllers/rank.controller.mjs';
-import handleGetUser from './controllers/sign-up.controller.mjs';
-import { getAllUsers } from './database/query.database.mjs';
+import handleSignIn from './controllers/sign-in.controller.js';
+import handleSignUp from './controllers/sign-up.controller.js';
+import handleRank from './controllers/rank.controller.js';
+import handleGetUser from './controllers/sign-up.controller.js';
+import { getAllUsers } from './database/query.database.js';
 
 const app = express();
 const port = process.env.PORT ?? 5000;
