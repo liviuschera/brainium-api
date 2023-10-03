@@ -9,8 +9,12 @@ const db = knex({
       },
       // host: '127.0.0.1',
       // user: 'postgres',
-      // password: 'test',
+      // password: 'a',
       // database: 'brainium',
+      // port: 5432
    },
 });
+
+console.log(db.select('*').from('users'));
+
 export default db;

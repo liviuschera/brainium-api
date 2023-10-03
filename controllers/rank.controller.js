@@ -13,7 +13,7 @@ export default async function handleRank(req, res) {
             'Unable to update user entries (db query failed)'
          );
       } else {
-         res.json(updateEntry[0]);
+         res.json(updateEntry[0].entries);
       }
    } else {
       res.status(404).json('Unable to update user entries (no such user)');
