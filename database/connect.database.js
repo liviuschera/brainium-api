@@ -4,14 +4,12 @@ const db = knex({
    client: 'pg',
    connection: {
       connectionString: process.env.DATABASE_URL,
-      ssl: {
-         rejectUnauthorized: false,
-      },
-      // host: '127.0.0.1',
-      // user: 'postgres',
-      // password: 'a',
-      // database: 'brainium',
-      // port: 5432
+      ssl: { rejectUnauthorized: false },
+      host: process.env.HOST,
+      port: 5432,
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.DATABASE_NAME,
    },
 });
 
