@@ -1,10 +1,10 @@
-import db from './connect.database.js';
+import db from "./connect.database.js";
 
 export async function getAllUsers() {
   try {
-    return await db.select('*').from('users');
+    return await db.select("*").from("users");
   } catch (error) {
-    console.error('Retrieving users error:', error);
+    console.error("Retrieving users error:", error);
   }
 }
 
@@ -13,21 +13,21 @@ export async function insertUser(data) {
   let result;
   return await db.transaction(async (trx) => {
     try {
-      const insertIntoUsers = await trx('users')
+      const insertIntoUsers = await trx("users")
         .insert({ first_name, last_name, joined: new Date(), email })
-        .returning('*');
+        .returning("*");
 
-      // await trx('login')
-      //   .insert({
-      //     hash: password,
-      //     email: insertIntoUsers[0]?.email,
-      //     created_on: new Date(),
-      //   })
-      //   .returning('*');
+      await trx("login")
+        .insert({
+          hash: password,
+          email: insertIntoUsers[0]?.email
+          // created_on: new Date(),
+        })
+        .returning("*");
 
       return insertIntoUsers?.[0];
     } catch (error) {
-      console.error('Insert user error: ', error.message);
+      console.error("Insert user error: ", error.message);
     }
 
     return result;
@@ -36,7 +36,7 @@ export async function insertUser(data) {
 
 export async function getUserById(id) {
   try {
-    return await db.select('*').from('users').where({ id: id });
+    return await db.select("*").from("users").where({ id: id });
   } catch (error) {
     console.error(`Unable to retrieve user with id: ${id}`, error);
   }
@@ -66,12 +66,12 @@ export async function getUserLogin(email) {
 
 export async function updateUserEntries(id) {
   try {
-    return await db('users')
-      .where('id', '=', id)
-      .increment('entries', 1)
-      .returning('*');
+    return await db("users")
+      .where("id", "=", id)
+      .increment("entries", 1)
+      .returning("*");
   } catch (error) {
-    console.error('updateUserEntries: Unable to update entry.', error.message);
+    console.error("updateUserEntries: Unable to update entry.", error.message);
     return new Error(error);
   }
 }
