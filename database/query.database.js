@@ -17,13 +17,13 @@ export async function insertUser(data) {
         .insert({ first_name, last_name, joined: new Date(), email })
         .returning('*');
 
-      await trx('login')
-        .insert({
-          hash: password,
-          email: insertIntoUsers[0]?.email,
-          created_on: new Date(),
-        })
-        .returning('*');
+      // await trx('login')
+      //   .insert({
+      //     hash: password,
+      //     email: insertIntoUsers[0]?.email,
+      //     created_on: new Date(),
+      //   })
+      //   .returning('*');
 
       return insertIntoUsers?.[0];
     } catch (error) {
